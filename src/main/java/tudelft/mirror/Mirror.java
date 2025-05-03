@@ -3,19 +3,17 @@ package tudelft.mirror;
 public class Mirror {
 
     public String mirrorEnds(String string) {
-        String mirror = "";
+        StringBuilder mirror = new StringBuilder();
 
-        int begin = 0;
-        int end = string.length() - 1;
-        for (; begin < end; begin++, end--) {
-            if (string.charAt(begin) == string.charAt(end)) {
-                mirror += String.valueOf(string.charAt(end));
-            }
-            else {
+        int len = string.length();
+        for (int i = 0; i < len; i++) {
+            if (string.charAt(i) == string.charAt(len - 1 - i)) {
+                mirror.append(string.charAt(i));
+            } else {
                 break;
             }
         }
 
-        return begin == end ? string : mirror;
+        return mirror.toString();
     }
 }
